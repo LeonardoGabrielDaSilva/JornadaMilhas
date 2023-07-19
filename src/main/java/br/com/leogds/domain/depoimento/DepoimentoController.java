@@ -1,5 +1,7 @@
 package br.com.leogds.domain.depoimento;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +36,8 @@ public class DepoimentoController {
 	}
 
 	@PutMapping
-	public ResponseEntity<DadosDepoimento> atualizar(@RequestBody @Valid DadosDepoimentoCompleto dadosDepoimentoCompleto) {
+	public ResponseEntity<DadosDepoimento> atualizar(
+			@RequestBody @Valid DadosDepoimentoCompleto dadosDepoimentoCompleto) {
 		return ResponseEntity.ok().body(depoimentoService.atualizar(dadosDepoimentoCompleto));
 	}
 
@@ -42,6 +45,10 @@ public class DepoimentoController {
 	public ResponseEntity<DadosDepoimento> excluir(@RequestBody @Valid DadosDepoimentoId dadosDepoimentoId) {
 		return ResponseEntity.noContent().build();
 	}
-	
-	
+
+	@GetMapping("-home")
+	public ResponseEntity<List<DadosDepoimento>> ler3DepoimentosAleatorios() {
+		return ResponseEntity.ok().body(depoimentoService.ler3DepoimentosAleatorios());
+	}
+
 }
