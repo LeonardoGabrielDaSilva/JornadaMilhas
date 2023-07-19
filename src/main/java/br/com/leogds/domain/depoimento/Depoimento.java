@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,16 +17,20 @@ public class Depoimento {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull
+	@NotBlank
 	private String nome;
 
-	@NotNull
+	@NotBlank
+	private String depoimento;	
+	
+	@NotBlank
 	private String foto;
 	
 	
-	public Depoimento(String nome, String foto) {
+	public Depoimento(String nome, String depoimento, String foto) {
 		super();
 		this.nome = nome;
+		this.depoimento = depoimento;
 		this.foto = foto;
 	}
 }
