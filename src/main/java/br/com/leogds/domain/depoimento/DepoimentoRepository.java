@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DepoimentoRepository extends JpaRepository<Depoimento, Long>{
 
-	@Query(value = "SELECT * FROM Depoimento ORDER BY RANDOM() LIMIT 3")
+	@Query(value = "SELECT d FROM Depoimento d ORDER BY RANDOM() LIMIT 3")
 	List<Depoimento> find3Random();
 
 }
