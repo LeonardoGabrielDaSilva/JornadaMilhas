@@ -1,5 +1,8 @@
 package br.com.leogds.domain.destino;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +40,10 @@ public class DestinoService {
 
 	public void excluir(@Valid DadosDestinoId dadosDestinoId) {
 		destinoRepository.deleteById(dadosDestinoId.id());
+	}
+
+	public List<Optional<Destino>> buscarDestinoPorNome(String nome) {
+		return destinoRepository.findByNome(nome);
 	}
 
 }
